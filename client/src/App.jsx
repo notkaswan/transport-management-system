@@ -12,6 +12,11 @@ import ProfilePage from './pages/ProfilePage'
 import AddDriverPage from './pages/AddDriverPage'
 import AddClientPage from './pages/AddClientPage'
 import AddVehiclePage from './pages/AddVehiclePage'
+import ViewClient from './pages/ViewClient'
+import ViewVehicle from './pages/ViewVehicle'
+import AddOrderPage from './pages/AddOrderPage'
+import ViewOrder from './pages/ViewOrder'
+import ShowRecords from './pages/ShowRecords'
 
 axios.defaults.baseURL = 'http://localhost:4000'
 axios.defaults.withCredentials = true
@@ -28,9 +33,17 @@ function App() {
           <Route path='/account' element={<ProfilePage />} />
           <Route path='/home' element={<HomePage />} />
           <Route path='/add/driver' element={<AddDriverPage />} />
-          <Route path='/add/client' element={<AddClientPage />} />
-          <Route path='/add/vehicle' element={<AddVehiclePage />} />
+          <Route path='/add/driver/:id' element={<AddDriverPage />} />
           <Route path='/view/driver' element={<ViewDriver />} />
+          <Route path='/add/client' element={<AddClientPage />} />
+          <Route path='/add/client/:id' element={<AddClientPage />} />
+          <Route path='/view/client' element={<ViewClient />} />
+          <Route path='/add/vehicle' element={<AddVehiclePage />} />
+          <Route path='/add/vehicle/:id' element={<AddVehiclePage />} />
+          <Route path='/view/vehicle' element={<ViewVehicle />} />
+          <Route path='/add/order' element={<AddOrderPage />} />
+          <Route path='/add/order/:id' element={<AddOrderPage />} />
+          <Route path='/view/order' element={<ViewOrder />} />
         </Route>
       </Routes>
     </UserContextProvider>

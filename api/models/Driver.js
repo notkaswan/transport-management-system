@@ -10,6 +10,7 @@ const driverSchema = new mongoose.Schema({
     address: String,
     aadhaarNo: Number,
     driverLicense: String,
+    profileImage: String,
 })
 
 const DriverModel = mongoose.model('Driver', driverSchema)

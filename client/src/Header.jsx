@@ -4,12 +4,11 @@ import { UserContext } from "./UserContext"
 
 export default function Header() {
     const {user} = useContext(UserContext)
-    // console.log(user)
     return (
-        <header className="flex justify-between text-white bg-gray-700 h-20 mb-10">
-            <div className="flex items-center font-bold text-white text-center text-4xl ">
+        <header className="flex justify-between p-4 text-white bg-gray-700 h-20 mb-10">
+            <Link to={'/home'} className="flex items-center font-bold text-white text-center text-4xl ">
                 {user? user.company: "Transport Management System"}
-            </div>
+            </Link>
             {!!user && (
                 <Link to={'/account'} className='flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4'>
                     <div className="bg-gray-500 rounded-full border border-gray-500 overflow-hidden">
