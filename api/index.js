@@ -13,6 +13,7 @@ const multer = require("multer");
 const fs = require("fs");
 require("dotenv").config();
 const app = express();
+const BASE_URL = process.env.BASE_URL;
 
 const bcryptSalt = bcrypt.genSaltSync(8);
 const jwtSecret = "asdfe2fsdf8dafdf7dfsdf23q4v5aw";
@@ -23,7 +24,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: BASE_URL,
   })
 );
 
