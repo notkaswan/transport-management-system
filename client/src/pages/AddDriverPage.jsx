@@ -33,9 +33,13 @@ export default function AddDriverPage() {
         })
     }, [id])
 
-    function inputHeader(text) {
+    function inputHeader(text, component) {
         return (
-            <h2 className="text-2xl p-4">{text}</h2>
+            <div className="block border">
+            <label className="border text-xl p-2">{text}
+            </label>
+            {component}
+            </div>
         )
     }
 
@@ -64,49 +68,58 @@ export default function AddDriverPage() {
 
     return (
         <div>
-            <form onSubmit={addNewDriver}>
-                <div className="grid grid-cols-4">
-                    {inputHeader('Name')}
-                    <input type="text" 
+            <form className="" onSubmit={addNewDriver}>
+                <div className="grid grid-cols-4 md:cols-2">
+                    {inputHeader('Name',
+                     <input type="text" 
                             value={name} 
                             onChange={e => setName(e.target.value)} 
                             placeholder="Full name" />
-                    {inputHeader('Dob')}
+                    )}
+                    {inputHeader('Dob', 
                     <input type="date" 
                             value={dob} 
                             onChange={e => setDob(e.target.value)} />
-                    {inputHeader('Phone no.')}
+                    )}
+                    {inputHeader('Phone no.', 
                     <input type="number" 
                             value={phoneNo} 
                             onChange={e => setPhoneNo(e.target.value)} 
                             placeholder="mobile number" />
-                    {inputHeader('Alternative Phone no.')}
+                    )}
+                    {inputHeader('Alternative Phone no.', 
                     <input type="number" 
-                            value={altPhoneNo} 
-                            onChange={e => setAltPhoneNo(e.target.value)}
-                            placeholder="Alternative mobile number" />
-                    {inputHeader('Email')}
+                    value={altPhoneNo} 
+                    onChange={e => setAltPhoneNo(e.target.value)}
+                    placeholder="Alternative mobile number" />
+                    )}
+                    {inputHeader('Email', 
                     <input type="email" 
-                            value={email} 
-                            onChange={e => setEmail(e.target.value)}
-                            placeholder="Email address" />
-                    {inputHeader('Address')}
+                    value={email} 
+                    onChange={e => setEmail(e.target.value)}
+                    placeholder="Email address" />
+                    )}
+                    {inputHeader('Address', 
                     <input type="text"
-                            value={address} 
-                            onChange={e => setAddress(e.target.value)}
-                            placeholder="address" />
-                    {inputHeader('Aadhaar no.')}
+                    value={address} 
+                    onChange={e => setAddress(e.target.value)}
+                    placeholder="address" />
+                    )}
+                    {inputHeader('Aadhaar no.', 
                     <input type="number"
-                            value={aadhaarNo} 
-                            onChange={e => setAadhaarNo(e.target.value)}
-                            placeholder="Aadhaar number" />
-                    {inputHeader('DL no.')}
+                    value={aadhaarNo} 
+                    onChange={e => setAadhaarNo(e.target.value)}
+                    placeholder="Aadhaar number" />
+                    )}
+                    {inputHeader('DL no.', 
                     <input type="text" 
-                            value={driverLicense} 
-                            onChange={e => setDriverLicense(e.target.value)}
-                            placeholder="Driver's license number" />
-                    {inputHeader('Profile picture')}
+                    value={driverLicense} 
+                    onChange={e => setDriverLicense(e.target.value)}
+                    placeholder="Driver's license number" />
+                    )}
+                    {inputHeader('Profile picture', 
                     <PhotosUploader profileImage={profileImage} onChange={setProfileImage} />
+                    )}
                 </div>
                 <button className="primary my-4" type="submit">Save</button>
             </form>
